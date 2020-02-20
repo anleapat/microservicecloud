@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anlea.springcloud.dao.DeptDao">
+
+	<select id="findById" parameterType="java.lang.Long"
+		resultType="com.anlea.springcloud.entities.Dept">
+		select dept_no deptNo, dname, db_source dbSource
+		from dept
+		where
+		dept_no = #{deptNo,jdbcType=BIGINT}
+	</select>
+	<insert id="addDept" parameterType="com.anlea.springcloud.entities.Dept">
+		insert into dept (dname,
+		db_source) values(#{dname}, database())
+	</insert>
+
+	<select id="findAll" resultType="com.anlea.springcloud.entities.Dept">
+		SELECT dept_no deptNo, dname,
+		db_source dbSource FROM dept
+	</select>
+
+</mapper>

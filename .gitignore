@@ -1,0 +1,11 @@
+/target/
+/.classpath
+/.project
+/.settings
+/src/test
+/*/target/
+/*/.classpath
+/*/.project
+/*/.settings
+/*/.springBeans
+/*/.factorypath

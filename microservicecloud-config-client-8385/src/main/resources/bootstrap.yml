@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: microservicecloud-config-client #从github访问的资源名称
+      profile: test #访问的配置项
+      label: master 
+      uri: http://config8384.com:8384 #通过springcloud config读取github配置

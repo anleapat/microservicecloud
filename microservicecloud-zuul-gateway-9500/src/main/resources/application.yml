@@ -1,0 +1,23 @@
+server:
+  port: 9500
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    hostname: gateway9500.com
+    prefer-ip-address: true
+###域名转发映射
+zuul:
+  prefix: /henry #服务前缀
+  ignored-services: microservicecloud-dept ##屏蔽真实服务名称
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/** ##暴露假的微服务地址
+info:
+  app.name: microservicecloud
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
